@@ -6,6 +6,8 @@ import Header2 from "./components/Header2"
 import Content2 from "./components/Content2"
 import Content3 from "./components/Content3"
 
+import Course from "./components/Course"
+
 const App = () =>{
   // 1.1-1.2
   const course = 'Half Stack application development'
@@ -17,7 +19,7 @@ const App = () =>{
   const exercises3 = 14
   
   // 1.3
-  const Course = 'Half Stack application development'
+  const Courses = 'Half Stack application development'
   const Part1 = {
     name: 'Fundamentals of React',
     exercises: 10
@@ -46,6 +48,25 @@ const App = () =>{
       exercises: 14
     }
   ]
+
+  // 1.5
+    const courses = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
   return (
     <>
     <div className="container">
@@ -62,16 +83,18 @@ const App = () =>{
         exercises3={exercises3} 
       />
     </div>
+
     <div className="container">
       <p>Objects props components</p>
-      <Header2 name = {Course} />
+      <Header2 name = {Courses} />
       <Content2 name={Part1.name} exercises={Part1.exercises} />
       <Content2 name={Part2.name} exercises={Part2.exercises} />
       <Content2 name={Part3.name} exercises={Part3.exercises} />
     </div>
+
     <div className="container">
       <p>Arrays props components</p>
-      <Header2 name = {Course} />
+      <Header2 name = {Courses} />
       {Parts.map((part1, index) =>(
         <Content3 
             key = {index}
@@ -79,6 +102,11 @@ const App = () =>{
             exercises = {part1.exercises}
         />
       ))}
+    </div>
+
+    <div className="container">
+      <p>Object with array props components</p>
+      <Course course = {courses} />
     </div>
     </>
   )
